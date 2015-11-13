@@ -22,10 +22,21 @@
 			$('#responsive-menu').mobileMenu();
             
             
-            $( "#check" ).button();
-            $( "#format" ).buttonset();
+            $("#check").buttonset();
+            $("#radio").buttonset();
+            
+            $("#selectcompanysize").selectmenu();
+            $("#selecthearaboutus").selectmenu();
+            
+            $( "#submitbt" ).click(function( event ) {
+                alert( "Thanks for your inquiry" );
+                 
+               $("#contactform").submit();
+            });
             
 		});
+        
+        
 	</script>
 </head>
 <body>
@@ -50,7 +61,7 @@
 		
 		<section id="welcome" class="eleven columns">
 			<h4>Contact Us</h4>
-			<form name="contactform" action="http://www.vectacorp.com/vc/scripts/contactus.asp" method="post">
+			<form id="contactform" name="contactform" action="http://www.vectacorp.com/vc/scripts/contactus.asp" method="post">
 				<fieldset>
 			    <legend>Contact a Sales Representative</legend>
 			    Name:
@@ -64,38 +75,40 @@
 				<input type="email" name="email" maxlength="30" required="">
 			   
                 What VectaCorp products are you interested in?<br>
-			    <label for="vProspect"><input type="checkbox" name="product" value="vProspect" id="vProspect">vProspect 2.0</label>
-			    <label for="vConvert"><input type="checkbox" name="product" value="vConvert" id="vConvert">vConvert 2.0</label>
-			    <label for="vRetain"><input type="checkbox" name="product" value="vRetain" id="vRetain">vRetain 1.0</label>
-			    
+                <div id="check">
+			    <input type="checkbox" name="product" value="vProspect" id="vProspect"><label for="vProspect">vProspect 2.0</label>
+			    <input type="checkbox" name="product" value="vConvert" id="vConvert"><label for="vConvert">vConvert 2.0</label>
+			    <input type="checkbox" name="product" value="vRetain" id="vRetain"><label for="vRetain">vRetain 1.0</label>
+                </div> 
 			    <br>
 			    What is your current infrastructure?<br>
-			    <label for="Mac"><input type="radio" name="infrastructure" value="Mac" id="Mac">Mac</label>
-			    <label for="Linux"><input type="radio" name="infrastructure" value="Linux" id="Linux">Linux</label>
-			    <label for="Unix"><input type="radio" name="infrastructure" value="Unix" id="Unix">Unix</label>
-			    <label for="Windows"><input type="radio" name="infrastructure" value="Windows" id="Windows">Windows</label>
-
+			    <div id="radio">
+			    <input type="radio" name="infrastructure" value="Mac" id="Mac"><label for="Mac">Mac</label>
+			    <input type="radio" name="infrastructure" value="Linux" id="Linux"><label for="Linux">Linux</label>
+			    <input type="radio" name="infrastructure" value="Unix" id="Unix"><label for="Unix">Unix</label>
+			    <input type="radio" name="infrastructure" value="Windows" id="Windows"><label for="Windows">Windows</label>
+                </div>
 			    <br>
-			    How many employees do you have?
-			    <select name="companysize">
-                    <option value="1-10">1-10</option>
+			    How many employees do you have?<br/>
+			    <select name="companysize" id="selectcompanysize">
+                    <option value="1-10" selected="selected">1-10</option>
                     <option value="11-100">11-100</option>
                     <option value="101-1000">101-1000</option>
                     <option value="More than 1000">More than 1000</option>
-		        </select>
+		        </select><br/>
                 
-			    How did you hear about us?
-			    <select name="hearaboutus" multiple="" size="5">
-                    <option value="Magazine Ad">Magazine Ad</option>
+			    How did you hear about us?<br/>
+			    <select name="hearaboutus" multiple="" size="5" id="selecthearaboutus">
+                    <option value="Magazine Ad" selected="selected">Magazine Ad</option>
                     <option value="Radio Ad">Radio Ad</option>
                     <option value="TV Ad">TV Ad</option>
                     <option value="Word of Mouth">Word of Mouth</option>
                     <option value="Other">Other</option>
-		        </select>
+		        </select><br/>
                 
 			    Questions or comments for our sales representatives?
 			    <textarea name="questions" size="30" rows="5"></textarea>
-			    <input type="submit" name="submit" value="Submit Now">
+			    <input type="submit" name="submit" value="Submit Now" id="submitbt">
 		    	</fieldset>
 			</form>
 	    </section>
